@@ -1,9 +1,21 @@
-import "./typography.css";
-import typography from "./typography.html";
+export function createElement(tagName, props) {
+  const element = document.createElement(tagName);
+  const { children, ...other } = props;
+  Object.assign(element, other);
 
-export default {
-  title: "Components/Typography",
-  parameters: { layout: "centered" },
-};
+  if (children) {
+    element.append(...children);
+  }
+  /*
+    props is a completely freely assignable name, it could also be named fische
+    
+    Object.assign(element, props) replaces this chunk of code:
+    element.placeholder = placeholder;
+    element.type = type;
+    element.innerText = innerText;
+    element.className = className;
+    element.href = href;
+    */
 
-export const headers = () => typography;
+  return element;
+}
