@@ -1,9 +1,9 @@
-import { createElement } from "../../components/typography/typography.stories";
+import { createElement } from "../typography/createElement";
 
 export function createCard({ imgSrc, name, status, species, origin }) {
   return createElement("div", {
     className: "card",
-    children: [
+    childs: [
       createElement("img", {
         className: "card__portrait",
         src: imgSrc,
